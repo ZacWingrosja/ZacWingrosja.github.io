@@ -1,4 +1,14 @@
-/* Configurações Globais */
+/* Configurações Globais e Variáveis de Cor */
+:root {
+    --bg-dark: #0a0e17;       /* Fundo principal super escuro */
+    --bg-card: #131a28;       /* Fundo dos cards e header */
+    --text-main: #e2e8f0;     /* Texto claro padrão */
+    --text-muted: #8b9eb5;    /* Texto secundário/apagado */
+    --neon-green: #00ff66;    /* Cor de destaque cyberpunk */
+    --neon-green-dim: rgba(0, 255, 102, 0.15); /* Fundo sutil para tags */
+    --border-color: #1f2937;  /* Bordas escuras */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,10 +16,10 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    /* [MUDADO] Fundo escuro e texto claro */
-    background-color: #1e1e1e;
-    color: #f4f4f4;
+    /* Aplicando a fonte de programação */
+    font-family: 'JetBrains Mono', monospace;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     line-height: 1.6;
 }
 
@@ -19,10 +29,9 @@ html {
 
 /* Header e Navegação */
 header {
-    /* [MUDADO] Fundo dos "cards" e borda */
-    background-color: #2a2a2a;
+    background-color: var(--bg-card);
     padding: 1rem 5%;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -39,8 +48,8 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    /* [MUDADO] Cor do logo para claro */
-    color: #f4f4f4;
+    color: var(--neon-green);
+    text-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
 }
 
 nav ul {
@@ -51,15 +60,14 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    /* [MUDADO] Cor do link para cinza claro */
-    color: #ccc;
+    color: var(--text-muted);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 nav ul li a:hover {
-    /* A cor de destaque azul (hover) funciona bem no escuro */
-    color: #007bff;
+    color: var(--neon-green);
+    text-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
 }
 
 /* Seções Principais */
@@ -71,8 +79,7 @@ main {
 
 section {
     padding: 4rem 0;
-    /* [MUDADO] Borda escura */
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--border-color);
 }
 
 section:last-of-type {
@@ -80,16 +87,16 @@ section:last-of-type {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    color: var(--neon-green);
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
-    /* [MUDADO] Cor do título para claro */
-    color: #f4f4f4;
+    color: var(--text-main);
 }
 
 /* Seção Sobre */
@@ -98,17 +105,15 @@ h2 {
     padding-top: 2rem;
 }
 .subtitulo {
-    font-size: 1.5rem;
-    /* [MUDADO] Cor do subtítulo */
-    color: #999;
+    font-size: 1.2rem;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
 }
 .descricao-sobre {
-    font-size: 1.1rem;
+    font-size: 1rem;
     max-width: 800px;
     margin: 0 auto;
-    /* [MUDADO] Cor do texto de descrição */
-    color: #ccc;
+    color: var(--text-main);
 }
 
 /* Seção Projetos */
@@ -119,35 +124,32 @@ h2 {
 }
 
 .projeto-card {
-    /* [MUDADO] Fundo do card e borda */
-    background-color: #2a2a2a;
-    border: 1px solid #444;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 2rem;
-    /* [MUDADO] Sombra mais sutil */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .projeto-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* Efeito de brilho neon na borda */
+    border-color: var(--neon-green);
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
 }
 
 .projeto-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
-    /* A cor de destaque azul funciona bem */
-    color: #007bff;
+    color: var(--neon-green);
 }
 
 .descricao-projeto {
-    font-size: 1rem;
-    /* [MUDADO] Cor do texto */
-    color: #ccc;
-    flex-grow: 1; /* Faz a descrição ocupar o espaço */
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    flex-grow: 1; 
     margin-bottom: 1.5rem;
 }
 
@@ -159,36 +161,33 @@ h2 {
 }
 
 .tags span {
-    /* [MUDADO] Cores das tags invertidas */
-    background-color: #444;
-    color: #e9ecef;
-    padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 500;
+    background-color: var(--neon-green-dim);
+    color: var(--neon-green);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid rgba(0, 255, 102, 0.2);
 }
 
-.btn-github {
+/* Botões base */
+.btn-github, .btn-contato {
     text-decoration: none;
-    /* [MUDADO] Botão cinza um pouco mais claro */
-    background-color: #555;
-    color: #fff;
+    background-color: transparent;
+    color: var(--neon-green);
+    border: 1px solid var(--neon-green);
     padding: 0.75rem 1rem;
-    border-radius: 5px;
+    border-radius: 4px;
     text-align: center;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
-.btn-github:hover {
-    background-color: #777;
-}
-
-.btn-github.disabled {
-    /* [MUDADO] Botão desabilitado */
-    background-color: #444;
-    color: #888;
-    cursor: not-allowed;
+.btn-github:hover, .btn-contato:hover {
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
 }
 
 /* Seção Contato */
@@ -197,10 +196,9 @@ h2 {
 }
 
 #contato p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
-    /* [MUDADO] Cor do texto */
-    color: #ccc;
+    color: var(--text-muted);
 }
 
 .links-contato {
@@ -211,29 +209,17 @@ h2 {
 }
 
 .btn-contato {
-    text-decoration: none;
-    /* Cor de destaque mantida */
-    background-color: #007bff;
-    color: #fff;
     padding: 1rem 2rem;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.btn-contato:hover {
-    background-color: #0056b3;
+    font-size: 1rem;
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 2rem;
-    /* [MUDADO] Fundo e borda */
-    background-color: #2a2a2a;
-    border-top: 1px solid #444;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
     margin-top: 2rem;
-    /* [MUDADO] Cor do texto do footer */
-    color: #999;
+    color: var(--text-muted);
+    font-size: 0.9rem;
 }
